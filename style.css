@@ -1,0 +1,382 @@
+body{
+  font-family: sans-serif;
+    font-weight: bold;
+  margin:0 auto;
+}
+nav {
+  background-color: #fff; /* change to white */
+  color: #333; /* change to dark font color */
+  font-family: Arial, sans-serif; /* add sans-serif font family */
+  font-size: 24px;
+  font-weight: bold;
+  height: 60px;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.navbar-logo a {
+  color: #333; /* change to dark font color */
+  font-family: Arial, sans-serif; /* add sans-serif font family */
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 30px;
+}
+
+.navbar-links li a {
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  position: relative; /* add position property */
+}
+
+
+.navbar-links a {
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar-links a:after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 0;
+  background: #000;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.7s ease;
+}
+
+.navbar-links a:hover:after {
+  width: 100%;
+}
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 25px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #333;
+}
+
+.menu-icon span:nth-child(2) {
+  width: 20px;
+}
+
+.menu-icon span:last-child {
+  margin-bottom: 0;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 15px 0px 15px -10px rgba(0,0,0,0.75);
+}
+
+.side-menu.show {
+  left: 0;
+}
+
+
+
+.side-menu ul {
+  margin-top: 50px;
+  padding: 20px;
+  list-style: none;
+  opacity: 0;
+  height:auto;
+  transform: translateX(-50%);
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+  
+}
+
+.side-menu.show ul {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.side-menu li {
+  position: relative;
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform: translateX(-50%);
+}
+
+.side-menu li::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #5a5a5a;
+  transition: width 0.5s ease-in-out;
+}
+
+.side-menu li:hover::after {
+  width: 100%;
+}
+.side-menu li a {
+  display: block;
+  padding: 10px;
+  color: #000000;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.7s ease;
+}
+
+.side-menu.show li {
+  transform: translateX(0);
+}
+.side-menu li a:hover {
+  color: #6a6a6a;
+}
+
+.side-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-size: 18px;
+  color: #000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+/* Styles for dropdown menu */
+.dropdown-menu {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1;
+  display: none;
+  transition: display 0.3s ease-out;
+  
+}
+.dropdown.show > .dropdown-menu {
+  display: contents;
+  
+}
+
+/* Styles for dropdown arrow icon */
+.dropdown > a i {
+  margin-left: 0.25em;
+  transition: transform 0.3s ease-in-out;
+}
+.dropdown.show > a i {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 900px) {
+  .menu-icon {
+    display:inline-block;
+  }
+  
+ 
+.navbar-links li a:hover {
+  color: #6A6A6A;
+   transform: scaleX(1.2);
+}
+
+.navbar-links li a:hover::after {
+  transform: scaleX(1); /* animate the underline to full width */
+}
+
+@media (max-width: 900px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-toggle.active span:nth-of-type(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-toggle.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:nth-of-type(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .navbar-toggle:hover span {
+    background-color: #ccc;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .navbar-links.active li {
+    margin: 10px 0;
+  }
+}
+  }
+
+footer {
+    display: flex;
+      border-top: 1px solid white;
+    height:85px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  
+  .footer-right {
+    flex: 0 0 auto;
+  }
+  
+  #container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  WIDTH: 85vw;
+  gap: 3vh;
+  margin:3rem auto;
+  height: auto;
+
+}
+div1,p{
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-family: sans-serif;
+
+}
+@media (max-width: 1600px){
+  #container {
+  WIDTH: 90vw;
+}
+  
+}
+@media (max-width: 1200px) {
+  #container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .my-container {
+      border-bottom: 6px solid #269CCE;
+      border-radius: 5px;
+      width:70vw;
+      display:flex;
+    margin:0 auto;}
+  
+  #div1, #div2 {
+    grid-column:span 12;
+  }
+  
+}
+
+#div1 {
+    display:flex;
+  text-align: center;
+  grid-column: span 6;
+  justify-content: center;
+align-items: center;
+  padding:60px;
+  font-size: 1.4rem;
+  line-height : 40px;
+}
+
+img {
+  max-width: 90%;
+  height: auto;
+  max-height: 90%;
+  opacity: 0.7;
+    transition: all 0.3s ease;
+    border-radius:5px;
+    cursor:pointer;
+}
+ img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  img:active {
+    transition: all 0.3s ease;
+    transform: scale(1);
+    opacity: 0.7;
+  }
+#div2 {
+  display:flex;
+  text-align: center;
+  grid-column: span 6;
+  justify-content: center;
+align-items: center;
+}
+@media (max-width: 600px) {
+  #div1 {
+    font-size: 1em;
+    padding:20px
+  }
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+  #div1 {
+    font-size: 1.1em;
+    padding:30px
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  #div1 {
+    font-size: 1.2em;
+    padding:40px
+  }
+}
+
+@media (min-width: 1001px) {
+  #div1 {
+    font-size: 1.3em;
+    padding:50px
+  }
+}
+
+.big-line {
+    display: none;
+  }
+
