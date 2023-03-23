@@ -98,16 +98,16 @@ nav {
 .side-menu {
   position: fixed;
   top: 0;
-  left: -250px;
+  right: -250px;
   width: 250px;
-  height: 100%;
+  height: auto;
   background: #fff;
   transition: left 0.3s ease-in-out;
   box-shadow: 15px 0px 15px -10px rgba(0,0,0,0.75);
 }
 
 .side-menu.show {
-  left: 0;
+  right: 0;
 }
 
 
@@ -118,7 +118,7 @@ nav {
   list-style: none;
   opacity: 0;
   height:auto;
-  transform: translateX(-50%);
+  transform: translateX(50%);
   transition: opacity 0.5s ease-in, transform 0.5s ease-in;
   
 }
@@ -134,7 +134,7 @@ nav {
   margin: 20px;
   text-align: center;
   transition: transform 0.5s ease;
-  transform: translateX(-50%);
+  transform: translateX(50%);
 }
 
 .side-menu li::after {
